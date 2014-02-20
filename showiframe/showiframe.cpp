@@ -138,13 +138,13 @@ int main(int argc, char * argv[])
     {
        if (strcmp(argv[1], "-p") == 0)
        {    
-           showiframe(argv[2], true);
+           showiframe(argv[2], false);
        }
     }
     else
     if (argc == 2)
     {
-           showiframe(argv[1], false);
+           showiframe(argv[1], true);
     }
     else
         usage(argv[0]);
