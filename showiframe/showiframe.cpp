@@ -144,6 +144,9 @@ int main(int argc, char * argv[])
     else
     if (argc == 2)
     {
+       if (fork() != 0)
+           return 0;
+       else
            showiframe(argv[1], true);
     }
     else
