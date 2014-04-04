@@ -38,7 +38,7 @@
 
 #include "map.h"
 
-#define DEVICENAME "fulan front panel buttons"
+#define DEVICENAME "TDT RC event driver"
 char eventPath[] = "/dev/input/event0";
 
 //Checks with event device is created by simubutton.ko
