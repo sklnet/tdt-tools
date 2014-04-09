@@ -43,9 +43,9 @@ int showiframe(char * path, bool progress) {
 
     int m_video_clip_fd;
     int f;
-
+#ifdef VERBOSE
     printf("showSinglePic %s\n", path);
-
+#endif
     f = open(path, O_RDONLY);
 
     if (f)
