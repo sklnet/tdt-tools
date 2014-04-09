@@ -68,13 +68,21 @@ int showiframe(char * path, bool progress) {
             memset(stuffing, 0, 8192);
             read(f, iframe, s.st_size);
             ioctl(m_video_clip_fd, VIDEO_SELECT_SOURCE, VIDEO_SOURCE_MEMORY);
+#ifdef VERBOSE
                 printf("VIDEO_SELECT_SOURCE MEMORY (%m)\n");
+#endif
             ioctl(m_video_clip_fd, VIDEO_PLAY);
+#ifdef VERBOSE
                 printf("VIDEO_PLAY (%m)\n");
+#endif
             ioctl(m_video_clip_fd, VIDEO_CONTINUE);
+#ifdef VERBOSE
                 printf("VIDEO_CONTINUE: (%m)\n");
+#endif
             ioctl(m_video_clip_fd, VIDEO_CLEAR_BUFFER);
+#ifdef VERBOSE
                 printf("VIDEO_CLEAR_BUFFER: (%m)\n");
+#endif
             while(pos <= (s.st_size-4) && !(seq_end_avail = (!iframe[pos] && !iframe[pos+1] && iframe[pos+2] == 1 && iframe[pos+3] == 0xB7)))
                     ++pos;
 
@@ -113,11 +121,13 @@ int showiframe(char * path, bool progress) {
 
                 }
             }
-
+#ifdef VERBOSE
             printf("********** end showiframe\n");
-
+#endif
             ioctl(m_video_clip_fd, VIDEO_SELECT_SOURCE, VIDEO_SOURCE_DEMUX);
+#ifdef VERBOSE
                 printf("VIDEO_SELECT_SOURCE DEMUX (%m)\n");
+#endif
             close (m_video_clip_fd );
 
             }
