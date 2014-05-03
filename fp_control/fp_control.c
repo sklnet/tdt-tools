@@ -658,7 +658,9 @@ int main (int argc, char* argv[])
 	eBoxType vBoxType = Unknown;
 	Context_t context;
 
+#ifdef VERBOSE
 	printf("%s: SW Version %s\n", argv[0], sw_version);
+#endif
 
 	vBoxType = getModel();
 
@@ -668,7 +670,9 @@ int main (int argc, char* argv[])
 		return -1;
 	}
 
+#ifdef VERBOSE
 	printf("Selected Model: %s\n", ((Model_t*)context.m)->Name);
+#endif
 
 	processCommand(&context, argc, argv);
 

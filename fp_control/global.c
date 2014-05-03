@@ -305,9 +305,11 @@ int checkConfig(int* display, int* display_custom, char** timeFormat, int* wakeu
 
 	if (fd_config == NULL)
 	{
+#ifdef VERBOSE
 		printf("config file (%s) not found, use standard config", CONFIG);
 		printf("configs: DISPLAY = %d, DISPLAYCUSTOM = %d, CUSTOM = %s, WAKEUPDECREMENT  %d\n", 
 			*display, *display_custom, *timeFormat, *wakeup);
+#endif
 		return -1;
 	}
 	

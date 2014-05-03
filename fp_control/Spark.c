@@ -102,7 +102,9 @@ static int Spark_init(Context_t* context)
     tSparkPrivate* private = malloc(sizeof(tSparkPrivate));
     int vFd;
 
+#ifdef VERBOSE
     printf("%s\n", __func__);
+#endif
 
     vFd = open(cVFD_DEVICE, O_RDWR);
 
@@ -130,7 +132,9 @@ static int Spark_setTime(Context_t* context, time_t* theGMTTime)
 {
    struct aotom_ioctl_data vData;
 
+#ifdef VERBOSE
    printf("%s\n", __func__);
+#endif
 
    Spark_setAotomTime(*theGMTTime, vData.u.time.time);
 
