@@ -42,7 +42,6 @@ libeplayer3      : $enable_eplayer3
 
 AC_OUTPUT([
 Makefile
-evremote2/Makefile
 fp_control/Makefile
 showiframe/Makefile
 stfbcontrol/Makefile
